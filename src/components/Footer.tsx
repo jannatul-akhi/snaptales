@@ -1,55 +1,41 @@
-import Image from 'next/image';
+import Image from "next/image";
 import styles from "../app/page.module.css";
-import React from 'react';
+import React from "react";
 
 const Footer = () => {
   return (
-    <div>
-      <footer className={styles.footer}>
+    <footer className={styles.footer}>
+      <div className={styles.footerLeft}>
+        <p>© {new Date().getFullYear()} MyGallery. All rights reserved.</p>
+        <p>Built with ❤️ using Next.js + Cloudinary</p>
+      </div>
+      <div className={styles.footerLinks}>
         <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
+          href="https://github.com/yourusername"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
+          <Image src="/github.svg" alt="GitHub icon" width={18} height={18} />
+          GitHub
         </a>
         <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
+          href="https://yourportfolio.com"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
+          <Image src="/globe.svg" alt="Website icon" width={18} height={18} />
+          Portfolio
         </a>
         <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
+          href="mailto:youremail@example.com"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
+          <Image src="/email.svg" alt="Email icon" width={18} height={18} />
+          Contact
         </a>
-      </footer>
-    </div>
+      </div>
+    </footer>
   );
 };
 
