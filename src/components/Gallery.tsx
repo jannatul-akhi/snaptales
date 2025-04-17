@@ -50,35 +50,19 @@ export default function Gallery() {
     }
   };
 
-  useEffect(() => {
-    const fetchImages = async () => {
-      setLoading(true);
-      try {
-        const res = await fetch("/gallery.json");
-        if (!res.ok) {
-          console.warn("Failed to load gallery.json");
-          return;
-        }
-        const data = await res.json();
-        setImages(data.reverse());
-      } catch (error) {
-        console.error("Error reading gallery.json:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchImages();
-  }, []);
   // useEffect(() => {
   //   const fetchImages = async () => {
   //     setLoading(true);
   //     try {
-  //       const res = await fetch("/api/getImages");
+  //       const res = await fetch("/gallery.json");
+  //       if (!res.ok) {
+  //         console.warn("Failed to load gallery.json");
+  //         return;
+  //       }
   //       const data = await res.json();
-  //       setImages(data.images);
-  //     } catch (err) {
-  //       console.error("Error fetching images:", err);
+  //       setImages(data.reverse());
+  //     } catch (error) {
+  //       console.error("Error reading gallery.json:", error);
   //     } finally {
   //       setLoading(false);
   //     }
@@ -86,6 +70,22 @@ export default function Gallery() {
 
   //   fetchImages();
   // }, []);
+  useEffect(() => {
+    const fetchImages = async () => {
+      setLoading(true);
+      try {
+        const res = await fetch("/api/getImages");
+        const data = await res.json();
+        setImages(data.images);
+      } catch (err) {
+        console.error("Error fetching images:", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchImages();
+  }, []);
 
   return (
     <div className={styles.page}>
